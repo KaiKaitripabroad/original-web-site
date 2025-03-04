@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEMOTY「旅メモ」</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Shafarik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- ローディング画面 -->
+    <div id="loading-screen">
+      <div class="loader-container">
+        <img
+          src="/assets/img/nemoty.png"
+          alt="logo"
+          class="loading-logo"
+        />
+        <div class="loader"></div>
+        <p class="loading-text">Now Loading...</p>
+      </div>
+    </div>
+
+    <header
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/assets/img/nemoty.png"
+            alt="logo"
+            class="logo"
+            height="60"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Top</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#views">View</a></li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://www.mofa.go.jp/mofaj/area/philippines/index.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sns">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="img-farst">
+        <img src="/assets/img/Tops.jpg" alt="" />
+        <div class="haikei">
+          <h1 class="text-farst">where you go ?</h1>
+        </div>
+        <div class="scroll-indicator">⬇ please scroll ⬇</div>
+      </div>
+      <div class="haikei1">
+        <section>
+          <h2>Cebuarea</h2>
+        </section>
+        <section id="cebu_map">
+          <div class="map-container">
+            <img
+              src="assets/img/sebu_map.png"
+              alt="セブの地図"
+              class="map-image"
+            />
+            <!-- 各エリアのリンク -->
+            <a
+              href="/koujicyuu.html"
+              class="area-link bogo-area"
+              >ボゴ</a
+            >
+            <a
+              href="/laplap.html"
+              class="area-link lapulapu-area"
+              >セブシティ</a
+            >
+            <a
+              href="/koujicyuu.html"
+              class="area-link carcar-area"
+              >カルカル</a
+            >
+            <a
+              href="/osurobu.html"
+              class="area-link osurobu-area"
+              >オスロブ・モアルボアル</a
+            >
+          </div>
+        </section>
+        <section id="views">
+          <h2>Philipines view</h2>
+          <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="assets/img/Tops.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Tops view</h5>
+                  <p>Do you like the scenery?</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="assets/img/yuuyake.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>One day view</h5>
+                  <p>Do you like the scenery?</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="assets/img/モアルボアル.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Sea view</h5>
+                  <p>Do you like the scenery?</p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer id="sns">
+      <div class="footer-top">
+        <picture class="art-direction">
+          <img
+            class="footer_picture"
+            src="/original-web-site/assets/img/pexels-fabianwiktor-994605.jpg"
+            alt=""
+          />
+        </picture>
+        <h3 class="footer-word">世界を旅しよう</h3>
+      </div>
+      <div class="footer-bottom">
+        <ul class="site-map">
+          <li><a href="#sebu_area">HOME トップページ</a></li>
+          <li>
+            <a href="https://www.mofa.go.jp/mofaj/area/philippines/index.html"
+              >ABOUT フィリピンについて</a
+            >
+          </li>
+          <li>
+            <a href="https://seedtech.co.jp/en/aboutus/">WE 私たちについて</a>
+          </li>
+          <li><a href="https://seedtech.co.jp/">FAQ 留学相談</a></li>
+        </ul>
+        <div class="documents">
+          <a href="https://seedtech.co.jp/">プライバシーポリシー</a>
+          <a href="https://seedtech.co.jp/">お問い合わせ</a>
+          <a href="https://seedtech.co.jp/">会社概要</a>
+        </div>
+        <div class="sns-links">
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a
+            href="https://www.instagram.com/nemoty_nemo/profilecard/?igsh=ZG11cDN6MWZ4dHdw"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="https://www.facebook.com/share/1BriAVKZqy/?mibextid=wwXIfr"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
+        </div>
+        <p class="copyright">© 2025 NEMOTY</p>
+        <button aria-label="トップページへ戻る" class="to-top">↑</button>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

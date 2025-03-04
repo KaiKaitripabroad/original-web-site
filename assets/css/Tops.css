@@ -1,0 +1,387 @@
+body {
+  margin: 0;
+  padding-top: 80px; /* ヘッダーの高さと同じだけ余白を作る */
+}
+header {
+  border-bottom: 3px rgb(137, 137, 139) solid;
+  z-index: 10; /* 確実に前面に出したい場合 */
+}
+.logo {
+  height: 80px;
+  width: 180px;
+}
+.navbar-collapse.show {
+  background-color: rgba(255, 255, 255, 0.9); /* 開いたときだけダークグレー */
+}
+
+.nav-item:hover {
+  background-color: #bcccdc;
+  border-radius: 10px;
+}
+
+.nav-link {
+  text-align: center;
+}
+
+/* メニュー内のリンク色を調整（必要に応じて） */
+.navbar-nav .nav-link {
+  color: rgb(0, 0, 0);
+}
+
+.navbar-nav .nav-link:hover {
+  color: white;
+}
+.nav {
+  display: flex;
+  gap: 30px;
+  list-style: none; /* リストの点を削除 */
+  padding: 0;
+  margin: 0;
+}
+.nav li a {
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav li a:hover {
+  color: #bdbaba;
+}
+
+.breadcrumb {
+  margin-top: 100px; /* ヘッダーの高さ+余裕分のマージン */
+}
+
+.naiyou {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* カードスタイル */
+.matome,
+.matome2 {
+  width: 48%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトルのスタイル */
+h1,
+h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* 段落のスタイル */
+.matome2-2 p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* 地図のスタイル */
+.map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 画像のスタイル */
+.matome2-1 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .naiyou {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .matome,
+  .matome2 {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+/* フッター全体のスタイル */
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: var(--color-white);
+  background: var(--color-rich-black);
+  margin-top: auto;
+  overflow: hidden;
+}
+
+/* フッター上部の背景とテキスト */
+.footer-top {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 15rem;
+  padding-block: 5rem 10rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+}
+
+.footer-top .art-direction {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer_picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: filter 0.3s ease;
+}
+
+.footer-top:hover .footer_picture {
+  filter: brightness(80%);
+}
+
+h3.footer-word {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 3.8rem;
+  line-height: 1.35;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* フッター下部のレイアウト */
+.footer-bottom {
+  position: relative;
+  padding-inline: 14rem;
+  padding-block: 8.2rem;
+  background: var(--color-rich-black);
+  display: grid;
+  grid-template-areas:
+    "si do"
+    "si sn"
+    "si co";
+  grid-template-rows: auto auto 1fr;
+  justify-content: space-between;
+  gap: 2.4rem 6rem;
+}
+
+/* サイトマップのリンク */
+.footer-bottom .site-map {
+  grid-area: si;
+  display: grid;
+  grid-template-rows: repeat(3, auto) 1fr;
+  grid-template-areas:
+    "ho pr sp"
+    "ab pr ne"
+    "ab pr fa"
+    "ab pr sh";
+  gap: 1.6rem 4rem;
+}
+
+.footer-bottom .site-map a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-bottom .site-map a:hover {
+  color: #666;
+  transform: translateX(5px);
+}
+
+/* ドキュメントリンクのデザイン */
+.footer-bottom .documents a {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-bottom .documents a:hover {
+  color: #666;
+  transform: translateX(5px);
+}
+
+/* SNSリンクのスタイル */
+.footer-bottom .sns-links {
+  grid-area: sn;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-bottom .sns-links a {
+  color: #fff;
+  font-size: 2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-bottom .sns-links a:hover {
+  color: #666;
+  transform: scale(1.2);
+}
+
+/* コピーライトのスタイル */
+.footer-bottom .copyright {
+  grid-area: co;
+  font-family: new-atten, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgb(253, 253, 253);
+  text-align: center;
+}
+
+/* トップに戻るボタン */
+.to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.to-top:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
+
+/* リストのデザイン */
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: 10px 0;
+}
+
+footer ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+footer ul li a:hover {
+  color: #666;
+  transform: translateX(5px);
+}
+
+/* リンクのホバースタイル */
+@media (hover: hover) and (pointer: fine) {
+  .footer-bottom a {
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.24, 0.98);
+    transition-property: color, transform;
+  }
+}
+
+/* レスポンシブ対応はそのまま */
+.footer-top {
+  width: 100vw;
+}
+
+.footer_picture {
+  width: 100%;
+}
+/* === レスポンシブ対応: 768px以下の場合（スマホ＆タブレット用） === */
+@media (max-width: 768px) {
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 2rem; /* サイドの余白を狭く */
+    padding-block: 4rem; /* 上下の余白を少し狭く */
+    gap: 2rem; /* セクション間のスペース */
+  }
+
+  .footer-bottom .site-map,
+  .footer-bottom .documents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* SNSリンクは横並びにする */
+  .footer-bottom .sns-links {
+    display: flex;
+    flex-direction: row; /* 横並びに変更 */
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* アイコン同士の間隔を調整 */
+    margin-top: 1rem;
+  }
+
+  .footer-bottom .site-map a,
+  .footer-bottom .documents a {
+    font-size: 1.1rem; /* フォントサイズを少し小さく */
+  }
+
+  .footer-top {
+    height: auto;
+    padding-block: 3rem; /* 上下の余白を少し狭く */
+  }
+
+  h3.footer-word {
+    font-size: 2.5rem; /* 見出しのサイズを小さく */
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem; /* コピーライトのフォントサイズ調整 */
+  }
+
+  .to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem; /* ボタンを少し小さく */
+  }
+}

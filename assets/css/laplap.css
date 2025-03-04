@@ -1,0 +1,547 @@
+body {
+  margin: 0;
+  padding-top: 100vh;        /* 画面の高さ分の余白 */
+  overflow-x: hidden;        /* 横スクロールを防止 */
+}
+/* 📱 スマホ用に余白を調整 */
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 0vh;        /* スマホでは半画面分の余白 */
+  }
+}
+/* ローディング画面の全体スタイル */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;  /* 黒背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ロゴの背景を透明にする */
+.wine-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  background-color: transparent; /* 背景を透明に */
+  animation: float 2s ease-in-out infinite;  /* 上下に揺れるアニメーション */
+  /* もし背景の白が消えないなら以下を追加 */
+  mix-blend-mode: multiply;  /* 白背景を消すテクニック */
+}
+
+
+/* スピナーのスタイル（白色でモノクロ風） */
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* ローディングテキストのスタイル（白色） */
+.loading-text {
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  animation: blink 1.2s infinite;
+  letter-spacing: 0.1em;
+}
+
+/* スピナーの回転アニメーション */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ロゴのフェードイン効果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ロゴの上下に揺れるアニメーション */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ローディングテキストの点滅アニメーション */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ローディング画面が消えるアニメーション */
+#loading-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+header {
+  border-bottom: 3px rgb(137, 137, 139) solid;
+}
+.logo {
+  height: 80px;
+  width: 180px;
+}
+.navbar-collapse.show {
+  background-color: rgba(255, 255, 255, 0.9); /* 開いたときだけダークグレー */
+}
+
+.nav-item:hover {
+  background-color: #bcccdc;
+  border-radius: 10px;
+}
+
+.nav-link {
+  text-align: center;
+}
+
+/* メニュー内のリンク色を調整（必要に応じて） */
+.navbar-nav .nav-link {
+  color: rgb(0, 0, 0);
+}
+
+.navbar-nav .nav-link:hover {
+  color: white;
+}
+.nav {
+  display: flex;
+  gap: 30px;
+  list-style: none; /* リストの点を削除 */
+  padding: 0;
+  margin: 0;
+}
+.nav li a {
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav li a:hover {
+  color: #bdbaba;
+}
+main {
+  background-color: transparent;  /* 背景を透明に */
+  flex: 1;
+  padding-top: 10%;
+}
+
+.haikei1 {
+  background-color: black;
+}
+
+section {
+  padding: 30px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 18px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none; /* クリックできなくする */
+}
+
+.video-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: black;     /* 読み込み中の背景色を黒に */
+}
+
+video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.8);
+  touch-action: none;
+}
+
+.video-wrap > p {
+  font-family: new-atten, sans-serif;
+  color: white;
+  font-size: 500%;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  left: 35%;
+  transition: opacity 0.5s ease;  /* フェードアウトを滑らかに */
+}
+@media screen and (max-width: 768px) {
+  .video-wrap {
+    position: relative;  /* 親要素に position: relative を指定 */
+  }
+
+  video {
+    object-fit: cover;
+  }
+
+  .video-wrap > p {
+    font-size: 280%;          /* スマホ用にフォントサイズ縮小 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+a {
+  -webkit-tap-highlight-color: transparent;  /* タップ時のハイライトを消す */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;         /* スマホ用にカードの隙間を狭く */
+  justify-content: center;
+}
+
+.container picture img {
+  transition: 0.3s ease-in-out;
+}
+
+.container picture img:hover {
+  filter: brightness(70%); /* 明るさを70%にして暗くする */
+}
+
+.item1, .item2 {
+  display: flex;
+  gap: 20px;                /* カード間のスペース */
+}
+.video-wrap > p, .card-text {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* 拡大と影をスムーズに */
+}
+
+/* マウスオーバー時に拡大＆影を追加 */
+.card:hover {
+  transform: scale(1.05);                  /* 5% 拡大 */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);  /* 影を追加して立体感 */
+}
+
+/* スマホ対応のカードサイズとレイアウト */
+@media screen and (max-width: 768px) {
+  .card {
+    width: 90%;              /* カード幅を狭く */
+    margin: 10px auto;       /* 自動で中央寄せ */
+  }
+
+  .card-text {
+    font-size: 16px;         /* テキストサイズ縮小 */
+  }
+}
+
+.card-text{
+  text-align: center;
+}
+
+picture {
+  width: 100%;
+}
+picture > a > img {
+  width: 100%;
+}
+/* フッター全体のスタイル */
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: var(--color-white);
+  background: var(--color-rich-black);
+  margin-top: auto;
+  overflow: hidden;
+}
+
+/* フッター上部の背景とテキスト */
+.footer-top {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 15rem;
+  padding-block: 5rem 10rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+}
+
+.footer-top .art-direction {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer_picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: filter 0.3s ease;
+}
+
+.footer-top:hover .footer_picture {
+  filter: brightness(80%);
+}
+
+h3.footer-word {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 3.8rem;
+  line-height: 1.35;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* フッター下部のレイアウト */
+.footer-bottom {
+  position: relative;
+  padding-inline: 14rem;
+  padding-block: 8.2rem;
+  background: var(--color-rich-black);
+  display: grid;
+  grid-template-areas:
+    "si do"
+    "si sn"
+    "si co";
+  grid-template-rows: auto auto 1fr;
+  justify-content: space-between;
+  gap: 2.4rem 6rem;
+}
+
+/* サイトマップのリンク */
+.footer-bottom .site-map {
+  grid-area: si;
+  display: grid;
+  grid-template-rows: repeat(3, auto) 1fr;
+  grid-template-areas:
+    "ho pr sp"
+    "ab pr ne"
+    "ab pr fa"
+    "ab pr sh";
+  gap: 1.6rem 4rem;
+}
+
+.footer-bottom .site-map a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-bottom .site-map a:hover {
+  color: #666;
+  transform: translateX(5px);
+}
+
+/* ドキュメントリンクのデザイン */
+.footer-bottom .documents a {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-bottom .documents a:hover {
+  color: #666;
+  transform: translateX(5px);
+}
+
+/* SNSリンクのスタイル */
+.footer-bottom .sns-links {
+  grid-area: sn;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-bottom .sns-links a {
+  color: #fff;
+  font-size: 2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-bottom .sns-links a:hover {
+  color: #666;
+  transform: scale(1.2);
+}
+
+/* コピーライトのスタイル */
+.footer-bottom .copyright {
+  grid-area: co;
+  font-family: new-atten, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgb(253, 253, 253);
+  text-align: center;
+}
+
+/* トップに戻るボタン */
+.to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.to-top:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
+
+/* リストのデザイン */
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: 10px 0;
+}
+
+footer ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+footer ul li a:hover {
+  color: #666;
+  transform: translateX(5px);
+}
+
+/* リンクのホバースタイル */
+@media (hover: hover) and (pointer: fine) {
+  .footer-bottom a {
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.24, 0.98);
+    transition-property: color, transform;
+  }
+}
+
+/* レスポンシブ対応はそのまま */
+.footer-top {
+  width: 100vw;
+}
+
+.footer_picture {
+  width: 100%;
+}
+/* === レスポンシブ対応: 768px以下の場合（スマホ＆タブレット用） === */
+@media (max-width: 768px) {
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 2rem;  /* サイドの余白を狭く */
+    padding-block: 4rem;   /* 上下の余白を少し狭く */
+    gap: 2rem;             /* セクション間のスペース */
+  }
+
+  .footer-bottom .site-map,
+  .footer-bottom .documents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* SNSリンクは横並びにする */
+  .footer-bottom .sns-links {
+    display: flex;
+    flex-direction: row;  /* 横並びに変更 */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;            /* アイコン同士の間隔を調整 */
+    margin-top: 1rem;
+  }
+
+  .footer-bottom .site-map a,
+  .footer-bottom .documents a {
+    font-size: 1.1rem;    /* フォントサイズを少し小さく */
+  }
+
+  .footer-top {
+    height: auto;
+    padding-block: 3rem;  /* 上下の余白を少し狭く */
+  }
+
+  h3.footer-word {
+    font-size: 2.5rem;   /* 見出しのサイズを小さく */
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem;    /* コピーライトのフォントサイズ調整 */
+  }
+
+  .to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;    /* ボタンを少し小さく */
+  }
+}
+
