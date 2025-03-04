@@ -251,6 +251,13 @@ a {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+.card-img-top {
+  width: 100%;                /* 横幅をカードに合わせる */
+  height: 200px;              /* 高さを統一（必要なら変更可） */
+  object-fit: cover;          /* はみ出した部分をトリミングして表示 */
+  object-position: center;    /* 中央を基準にトリミング */
+}
+
 .card {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
