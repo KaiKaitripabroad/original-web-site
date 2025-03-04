@@ -1,7 +1,13 @@
 body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* 横スクロールを防ぐ */
+  padding-top: 100vh;        /* 画面の高さ分の余白 */
+  overflow-x: hidden;        /* 横スクロールを防止 */
+}
+/* 📱 スマホ用に余白を調整 */
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 0vh;        /* スマホでは半画面分の余白 */
+  }
 }
 
 /* ローディング画面の全体スタイル */
@@ -133,7 +139,7 @@ header {
   color: #bdbaba;
 }
 main {
-  background-color: black;
+  background-color: transparent;
   flex: 1;
   padding-top: 10%;
 }
@@ -144,16 +150,6 @@ main {
 
 section {
   padding: 30px;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 18px;
-  animation: bounce 1.5s infinite;
 }
 
 @keyframes bounce {
@@ -172,20 +168,24 @@ section {
 }
 
 .video-wrap {
-  position: relative;
-  width: 100%; /* 親要素の幅を100%に設定 */
-  height: auto; /* 高さは自動に */
-  margin: 0 auto; /* 中央寄せ */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: black;     /* 読み込み中の背景色を黒に */
 }
 
 video {
-  display: block;
-  width: 100%; /* 横幅を親要素に合わせる */
-  height: 100vh; /* 縦横比を維持して高さを自動調整 */
-  object-fit: cover; /* 必要ならそのまま */
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
   filter: brightness(0.8);
-  margin: 0 auto; /* 中央寄せにしたい場合 */
+  touch-action: none;
 }
+
 .video-wrap > p {
   font-family: new-atten, sans-serif;
   color: white;
@@ -194,32 +194,33 @@ video {
   top: 50%;
   z-index: 1;
   left: 35%;
+  transition: opacity 0.5s ease;  /* フェードアウトを滑らかに */
 }
 @media screen and (max-width: 768px) {
   .video-wrap {
-    position: relative; /* 親要素に position: relative を指定 */
+    position: relative;  /* 親要素に position: relative を指定 */
+  }
+
+  video {
+    object-fit: cover;
   }
 
   .video-wrap > p {
-    font-family: new-atten, sans-serif;
-    color: white;
-    font-size: 380%;
-    position: absolute;
+    font-size: 280%;          /* スマホ用にフォントサイズ縮小 */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
-    text-align: center; /* テキストの中央揃え */
-    white-space: nowrap; /* 改行を禁止 */
-    width: auto; /* 自然な幅に調整 */
-    max-width: 90%; /* スマホなどの小さい画面でのはみ出し防止 */
   }
 }
+a {
+  -webkit-tap-highlight-color: transparent;  /* タップ時のハイライトを消す */
+}
+
 .container {
   display: flex;
-  justify-content: center; /* 全体を中央揃え */
-  flex-wrap: wrap; /* 要素が多い場合に折り返す */
-  gap: 20px; /* カード間のスペース */
+  flex-wrap: wrap;
+  gap: 10px;         /* スマホ用にカードの隙間を狭く */
+  justify-content: center;
 }
 
 .container picture img {
@@ -230,12 +231,47 @@ video {
   filter: brightness(70%); /* 明るさを70%にして暗くする */
 }
 
-.item1,
-.item2 {
+.item1, .item2 {
   display: flex;
-  gap: 20px; /* カード間のスペース */
+  gap: 20px;                /* カード間のスペース */
 }
-.card-text {
+.video-wrap > p, .card-text {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.card-img-top {
+  width: 100%;                /* 横幅をカードに合わせる */
+  height: 200px;              /* 高さを統一（必要なら変更可） */
+  object-fit: cover;          /* はみ出した部分をトリミングして表示 */
+  object-position: center;    /* 中央を基準にトリミング */
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* 拡大と影をスムーズに */
+}
+
+/* マウスオーバー時に拡大＆影を追加 */
+.card:hover {
+  transform: scale(1.05);                  /* 5% 拡大 */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);  /* 影を追加して立体感 */
+}
+
+/* スマホ対応のカードサイズとレイアウト */
+@media screen and (max-width: 768px) {
+  .card {
+    width: 90%;              /* カード幅を狭く */
+    margin: 10px auto;       /* 自動で中央寄せ */
+  }
+
+  .card-text {
+    font-size: 16px;         /* テキストサイズ縮小 */
+  }
+}
+
+.card-text{
   text-align: center;
 }
 
