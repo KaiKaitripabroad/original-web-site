@@ -9,6 +9,7 @@ body {
     padding-top: 0vh;        /* スマホでは半画面分の余白 */
   }
 }
+
 /* ローディング画面の全体スタイル */
 #loading-screen {
   position: fixed;
@@ -33,14 +34,12 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
-/* ロゴの背景を透明にする */
-.wine-logo {
+/* ロゴのスタイル（白黒対応） */
+.loading-logo {
   width: 150px;
   margin-bottom: 20px;
-  background-color: transparent; /* 背景を透明に */
-  animation: float 2s ease-in-out infinite;  /* 上下に揺れるアニメーション */
-  /* もし背景の白が消えないなら以下を追加 */
-  mix-blend-mode: multiply;  /* 白背景を消すテクニック */
+  filter: brightness(0) invert(1);  /* 白黒反転でロゴを白に */
+  animation: pulse 1.5s infinite;
 }
 
 
@@ -76,10 +75,10 @@ body {
   to { opacity: 1; }
 }
 
-/* ロゴの上下に揺れるアニメーション */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+/* ロゴの鼓動エフェクト */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 /* ローディングテキストの点滅アニメーション */
@@ -93,6 +92,7 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
 
 
 header {

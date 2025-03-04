@@ -1,8 +1,12 @@
-$(window).on('load', function() {
-  // ページが完全に読み込まれたら、ローディング画面を非表示に
-  $('#loading-screen').fadeOut(800, function() {
-      $('#content').fadeIn(800);
-  });
+$(window).on("load", function () {
+  // ページ読み込み完了後にローディング画面をフェードアウト
+  setTimeout(function () {
+      $("#loading-screen").addClass("fade-out");
+  }, 1500); // 1.5秒後にフェードアウト開始
+
+  setTimeout(function () {
+      $("#loading-screen").remove(); // フェードアウト後に削除
+  }, 2000); // 2秒後に完全に削除
 });
 $(window).scroll(function() {
   if ($(this).scrollTop() > 100) {       // 100px以上スクロールしたら
