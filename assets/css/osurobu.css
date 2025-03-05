@@ -193,7 +193,10 @@ video {
   position: absolute;
   top: 50%;
   z-index: 1;
-  left: 35%;
+  text-align: center;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
   transition: opacity 0.5s ease;  /* フェードアウトを滑らかに */
 }
 @media screen and (max-width: 768px) {
@@ -206,9 +209,12 @@ video {
   }
 
   .video-wrap > p {
-    font-size: 280%;          /* スマホ用にフォントサイズ縮小 */
+    font-size: 300%;          /* スマホ用にフォントサイズ縮小 */
     top: 50%;
-    left: 50%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     transform: translate(-50%, -50%);
   }
 }

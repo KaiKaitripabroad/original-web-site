@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEMOTY「旅メモ」</title>
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/osurobu.css" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/laplapzoku/pari-an.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
       rel="stylesheet"
@@ -29,22 +29,13 @@
     />
   </head>
   <body>
-    <!-- ローディング画面 -->
-    <div id="loading-screen">
-      <div class="loader-container">
-        <img src="./assets/img/nemoty.png" alt="logo" class="loading-logo" />
-        <div class="loader"></div>
-        <p class="loading-text">Now Loading...</p>
-      </div>
-    </div>
-
     <header
       class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow"
     >
       <div class="container">
         <a class="navbar-brand" href="#">
           <img
-            src="./assets/img/nemoty.png"
+            src="../assets/img/nemoty.png"
             alt="logo"
             class="logo"
             height="60"
@@ -64,94 +55,85 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./index.html">Top</a>
+              <a class="nav-link" href="../index.html">Top</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./index.html#views">View</a>
+              <a class="nav-link" href="../index.html#view">View</a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="https://www.mofa.go.jp/mofaj/area/philippines/index.html"
+              <a class="nav-link" href="https://seedtech.co.jp/en/aboutus/"
                 >About</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./index.html#sns">Contact</a>
+              <a class="nav-link" href="../index.html#sns">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </header>
-    <main>
-      <div class="video-wrap">
-        <p>オスロブ・モアルボアル周辺</p>
-        <video
-          id="myVideo"
-          src="./assets/video/ジンベエザメ ‐ Clipchampで作成_1741058951752.mp4"
-          autoplay
-          loop
-          muted
-        ></video>
+    <section>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="../index.html">top</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="../osurobu.html">オスロブ</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">oslob</li>
+        </ol>
+      </nav>
+    </section>
+    <section class="naiyou">
+      <div class="matome">
+        <h1>Oslob</h1>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89033.65436433212!2d123.38794974382061!3d9.528805604445106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33ab9fc3ba1584b3%3A0xcb54005bbcc85855!2z44K744OWIOOCquOCueODreODlg!5e0!3m2!1sja!2sph!4v1741140184597!5m2!1sja!2sph"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
-      <section>
-        <div class="container">
-          <div class="card" style="width: 18rem">
-            <a href="./osurobu,moaruboaruhtml/moaruboaru.html">
-              <img src="assets/img/kame.jpg" class="card-img-top" alt="..." />
-            </a>
-            <div class="card-body">
-              <p class="card-text">亀</p>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <a href="./osurobu,moaruboaruhtml/whitebeach.html">
-              <img
-                src="./assets/img/white beach.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <p class="card-text">ホワイトビーチ</p>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <a href="./osurobu,moaruboaruhtml/sumiron.html">
-              <img
-                src="./assets/img/じんべい .jpg"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <p class="card-text">オスロブ</p>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <a href="./osurobu,moaruboaruhtml/kawasan.html">
-              <img
-                src="./assets/img/川さん滝.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-            </a>
-            <div class="card-body">
-              <p class="card-text">カワサン滝</p>
-            </div>
-          </div>
+      <div class="matome2">
+        <div class="matome2-1">
+          <h1>オスロブ</h1>
+          <picture>
+            <img src="../assets/img/じんべい .jpg" alt="ああああああ" />
+          </picture>
         </div>
-      </section>
-    </main>
+        <div class="matome2-2">
+          <p>
+            オスロブ（Oslob）は、フィリピンのセブ島南東部に位置する小さな港町で、セブ市内から約130km離れています。この町は、世界最大の魚であるジンベイザメと一緒に泳げるスポットとして知られ、年間を通じて多くの観光客やダイバーが訪れます。
+          </p>
+          <h2>主な特徴とアクティビティ</h2>
+          <p>
+            ジンベイザメウォッチング
+            <br />
+            ツマログ滝
+            <br />
+            スミロン島
+          </p>
+          <h2>アクセス</h2>
+          <p>
+            セブ市内からオスロブへは、車や高速バスで約3時間かかります。早朝に出発することで、ジンベイザメウォッチングや他の観光スポットを一日で効率よく巡ることができます。
+          </p>
+          <h2>訪問時の注意点</h2>
+          <p>
+            ジンベイザメウォッチングは早朝に行われることが多いため、前日の夜にオスロブ近郊に宿泊するか、早朝にセブ市内を出発することをおすすめします。また、環境保護の観点から、ジンベイザメに触れたり、フラッシュ撮影を行わないよう注意が必要です。
+          </p>
+        </div>
+      </div>
+    </section>
     <footer id="sns">
       <div class="footer-top">
         <picture class="art-direction">
           <img
             class="footer_picture"
-            src="./assets/img/pexels-fabianwiktor-994605.jpg"
+            src="../assets/img/pexels-fabianwiktor-994605.jpg"
             alt=""
           />
         </picture>
@@ -159,7 +141,7 @@
       </div>
       <div class="footer-bottom">
         <ul class="site-map">
-          <li><a href="/index.html#">HOME トップページ</a></li>
+          <li><a href="#sebu_area">HOME トップページ</a></li>
           <li>
             <a href="https://www.mofa.go.jp/mofaj/area/philippines/index.html"
               >ABOUT フィリピンについて</a
@@ -191,6 +173,6 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/tops.js"></script>
   </body>
 </html>
