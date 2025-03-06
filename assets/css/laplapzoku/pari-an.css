@@ -1,17 +1,13 @@
 body {
   margin: 0;
-  padding-top: 80px; /* ヘッダーの高さと同じだけ余白を作る */
+  padding-top: 80px;
 }
 header {
   border-bottom: 3px rgb(137, 137, 139) solid;
-  z-index: 10; /* 確実に前面に出したい場合 */
 }
 .logo {
   height: 80px;
   width: 180px;
-}
-.navbar-collapse.show {
-  background-color: rgba(255, 255, 255, 0.9); /* 開いたときだけダークグレー */
 }
 
 .nav-item:hover {
@@ -23,7 +19,6 @@ header {
   text-align: center;
 }
 
-/* メニュー内のリンク色を調整（必要に応じて） */
 .navbar-nav .nav-link {
   color: rgb(0, 0, 0);
 }
@@ -34,29 +29,26 @@ header {
 .nav {
   display: flex;
   gap: 30px;
-  list-style: none; /* リストの点を削除 */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 .nav li a {
   color: #333;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 500;/*フォントの太さ*/
   text-decoration: none;
-  transition: color 0.3s;
 }
 .nav li a:hover {
   color: #bdbaba;
 }
 
 .breadcrumb {
-  margin-top: 100px; /* ヘッダーの高さ+余裕分のマージン */
+  margin-top: 100px; 
 }
 
 .naiyou {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   padding: 40px;
   gap: 40px;
   max-width: 1200px;
@@ -66,42 +58,33 @@ header {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* カードスタイル */
 .matome,
 .matome2 {
   width: 48%;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);/*左を0pxにすることで左右にずれない真下に影*/
 }
 
-/* タイトルのスタイル */
 h1,
 h2 {
   color: #2c3e50;
   margin-bottom: 10px;
 }
 
-/* 段落のスタイル */
 .matome2-2 p {
-  line-height: 1.8;
-  margin-bottom: 15px;
+  line-height: 1.8;/*行の高さを普通の1.8倍にする読みやすくする工夫です。*/
 }
 
-/* 地図のスタイル */
 .map-container {
-  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
 iframe {
-  width: 100%;
   max-width: 600px;
-  height: 450px;
-  border: 0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -109,7 +92,6 @@ iframe {
 /* 画像のスタイル */
 .matome2-1 img {
   max-width: 100%;
-  height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -119,7 +101,6 @@ iframe {
   .naiyou {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
   }
   .matome,
   .matome2 {
@@ -132,30 +113,27 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  color: var(--color-white);
-  background: var(--color-rich-black);
   margin-top: auto;
   overflow: hidden;
 }
 
-/* フッター上部の背景とテキスト */
 .footer-top {
   position: relative;
   z-index: 0;
   width: 100%;
-  height: 15rem;
+  height: 15rem;/*kokodayo*/
   padding-block: 5rem 10rem;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
 }
 
-.footer-top .art-direction {
+.art-direction {
   position: absolute;
-  z-index: -1;
+  z-index: -1;/*レイアウトな感じで値が小さくなればなるほど奥に配置*/
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  /*absolute を使うと、文書の流れ（他の要素との位置関係）から切り離される。から、left: 0; と top: 0; を使うと、親要素の左上にピッタリ配置できる。*/
 }
 
 .footer_picture {
@@ -175,8 +153,8 @@ h3.footer-word {
   justify-content: center;
   text-align: center;
   font-size: 3.8rem;
-  line-height: 1.35;
-  letter-spacing: 0.15em;
+  line-height: 1.35;/*行間スペース*/
+  letter-spacing: 0.15em;/*文字間のスペース*/
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -184,8 +162,8 @@ h3.footer-word {
 /* フッター下部のレイアウト */
 .footer-bottom {
   position: relative;
-  padding-inline: 14rem;
-  padding-block: 8.2rem;
+  padding-inline: 14rem;/*左右の余白*/
+  padding-block: 8.2rem;/*上下の余白*/
   background: var(--color-rich-black);
   display: grid;
   grid-template-areas:
